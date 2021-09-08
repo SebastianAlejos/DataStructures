@@ -1,3 +1,5 @@
+/*Sebastian Alejos Acosta 
+Binary Search Homework*/
 import javax.swing.JOptionPane;
 
 public class binarysearch {
