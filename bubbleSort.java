@@ -1,3 +1,5 @@
+/*Sebastian Alejos Acosta
+Bubble Sort Exercise*/
 import javax.swing.JOptionPane;
 
 public class bubbleSort {
