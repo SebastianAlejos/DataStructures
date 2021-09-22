@@ -20,12 +20,12 @@ public class Stack {
        
     }
 
-	public int pop()
+	/*public int pop()
 	{	}
 
 	// Function to return top element in a stack
 	public int peek()
-	{	}
+	{	}*/
 
 	// Function to return the size of the stack
 	public int size()
@@ -61,6 +61,13 @@ public class Stack {
 	public static void main (String[] args)
 	{
 		Stack stack = new Stack(5);
+		stack.push(5);
+		stack.push(5);
+		stack.push(5);
+		stack.push(5);
+		stack.push(5);
+		stack.push(5);
+		stack.push(5);
 		stack.push(5);
 	}
 }
