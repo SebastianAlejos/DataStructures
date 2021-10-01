@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class Stack {
     private int arr[];
 	public int top;
@@ -20,12 +22,23 @@ public class Stack {
        
     }
 
-	/*public int pop()
-	{	}
+	public int pop(){
+        if (isEmpty()) {
+            System.out.println("Stack is empty - Program terminated");
+            System.exit(1);
+        }
+        return arr[top--];
+    }
 
 	// Function to return top element in a stack
-	public int peek()
-	{	}*/
+	public int peek(){
+        if (!isEmpty()) {
+            return arr[top];
+        } 
+        System.out.println("Stack is empty");
+        return(-1);
+        
+    }
 
 	// Function to return the size of the stack
 	public int size()
@@ -61,13 +74,24 @@ public class Stack {
 	public static void main (String[] args)
 	{
 		Stack stack = new Stack(5);
-		stack.push(5);
-		stack.push(5);
-		stack.push(5);
-		stack.push(5);
-		stack.push(5);
-		stack.push(5);
-		stack.push(5);
-		stack.push(5);
+		int choice=0;
+		while (choice!=4) {
+			choice=Integer.parseInt(JOptionPane.showInputDialog("What do you want to do? \n 1. Push \n 2. Pop \n 3. Display \n 4. Exit"));
+			switch (choice) {
+				case 1:
+					int n=Integer.parseInt(JOptionPane.showInputDialog("What number do you want to push?"));
+					stack.push(n);
+					break;
+				case 2:
+					n=Integer.parseInt(JOptionPane.showInputDialog("What number do you want to pop?"));
+					stack.pop();
+					break;
+				case 3:
+					stack.display_stack();
+					break;
+				case 4:
+					System.exit(4);
+			}
+		}
 	}
 }
