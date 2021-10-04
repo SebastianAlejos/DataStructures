@@ -39,6 +39,16 @@ public class linkedList {
             this.tail=new_Node;
         }
     }
+
+    public int getListSize() {
+        Node n=this.head;
+        int count=0;
+        while (n!=null) {
+            count++;
+            n=n.next;
+        }
+        return count;
+    }
     public static void main(String[] args) {
         linkedList ll=new linkedList();
         ll.insertAtHead(10);
