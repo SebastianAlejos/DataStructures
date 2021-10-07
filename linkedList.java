@@ -49,6 +49,31 @@ public class linkedList {
         }
         return count;
     }
+
+    public void deleteAtHead() {
+        if (getListSize()==0) {
+            System.out.println("List is empty, nothing to delete!");
+        } else if(this.head==this.tail) {
+            this.head=this.tail=null;
+        }else{
+            this.head=this.head.next;
+        }
+    }
+    public void deleteAtTail() {
+        int listSize= getListSize();
+        if (listSize==0) {
+            System.out.println("List is empty, nothing to delete!");    
+        }else if(this.head==this.tail){
+            this.head=this.tail=null;
+        }else{
+            Node n=this.head;
+            for (int i = 0; i < listSize-2; i++) {
+                n=n.next;
+            }
+            this.tail=n;
+            this.tail.next=null;
+        }
+    }
     public static void main(String[] args) {
         linkedList ll=new linkedList();
         ll.insertAtHead(10);
