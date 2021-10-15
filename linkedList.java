@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class linkedList {
     Node head;
     Node tail;
@@ -30,7 +32,7 @@ public class linkedList {
         }
     }
 
-    public void instertAtTail(int e) {
+    public void insertAtTail(int e) {
         Node new_Node=new Node(e);
         if (this.head==null) {
             this.head=tail=new_Node;
@@ -74,10 +76,56 @@ public class linkedList {
             this.tail.next=null;
         }
     }
+    public void insertAtLocation(int loc, int e) {
+        Node new_Node=new Node(e);
+        Node n = this.head;
+        int track=0;
+        if(loc>getListSize()+1){
+            System.out.println("Can't insert at location. Location out of bounds.");
+        }
+        else if(loc==1){
+            insertAtHead(e);
+        }
+        else if(loc == (getListSize()+1)){
+            insertAtTail(e);
+        }
+        else{
+            while(track+2<loc){
+                track++;
+                n=n.next;
+            }
+            new_Node.next=n.next;
+            n.next=new_Node;
+        }
+    }
     public static void main(String[] args) {
-        linkedList ll=new linkedList();
-        ll.insertAtHead(10);
-        ll.insertAtHead(20);
-        ll.printList();
+        linkedList ll  = new linkedList();
+		int choice=0;
+		while (choice!=4) {
+			choice=Integer.parseInt(JOptionPane.showInputDialog("What do you want to do? \n 1. Insert at Head \n 2. Insert at Tail \n 3. Delete at Head \n4. Delete at Tail \n5. Insert at Position \n6. Delete at Position \n7. Display List \n 8. Exit Program"));
+			switch (choice) {
+				case 1:
+					int n=Integer.parseInt(JOptionPane.showInputDialog("What number do you want to insert?"));
+					ll.insertAtHead(n);
+					break;
+				case 2:
+                    n=Integer.parseInt(JOptionPane.showInputDialog("What number do you want to insert?"));
+                    ll.insertAtTail(n);
+                    break;
+				case 3:
+                    n=Integer.parseInt(JOptionPane.showInputDialog("What number do you want to insert?"));
+                    ll.insertAtHead(n);
+                    break;
+				case 4:
+                    ll.deleteAtHead();
+                    System.out.println("Number deleted");
+                    break;
+                case 5:
+                    int l=Integer.parseInt(JOptionPane.showInputDialog("Where do you want to insert?"));
+                    n=Integer.parseInt(JOptionPane.showInputDialog("What number do you want to insert?"));
+                    ll.insertAtLocation(l,n);
+                    break;
+			}
+		}
     }
 }
