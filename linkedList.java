@@ -32,6 +32,14 @@ public class linkedList {
         }
     }
 
+    public void reversePrint(Node head) {
+        if(head==null){
+            return;
+        }
+        reversePrint(head.next);
+        System.out.println(head.element);
+    }
+
     public void insertAtTail(int e) {
         Node new_Node=new Node(e);
         if (this.head==null) {
