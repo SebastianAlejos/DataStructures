@@ -32,12 +32,12 @@ public class linkedList {
         }
     }
 
-    public void reversePrint(Node head) {
-        if(head==null){
+    public void reversePrint(Node n){
+        if(n==null){
             return;
         }
-        reversePrint(head.next);
-        System.out.println(head.element);
+        reversePrint(n.next);
+        System.out.println(n.element);
     }
 
     public void insertAtTail(int e) {
